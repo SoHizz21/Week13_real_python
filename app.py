@@ -1,18 +1,23 @@
 import tkinter as tk
 window = tk.Tk()
 
-lbl_name = tk.Label(text="Please input name:")
-ent_name = tk.Entry()
+lbl_name = tk.Label(text="°F(fahrenheit)")
+ent_name = tk.Entry(text="text",fg="black",width=10)
+
 def handle_click():
-      name=ent_name.get()
-      lbl_greet=tk.Label(text=name,bg="pink",fg='red')
-      lbl_greet.pack()
+      F = float(ent_name.get())
+      run_Ans = (F-32)*5/9
+      Ans.config(text=f"{run_Ans:.2f}°C")
 
-btn_click = tk.Button(text="Clickme!",command=handle_click)
-lbl_name.pack()
-ent_name.pack()
-btn_click.pack()
+btn_click = tk.Button(text="=",command=handle_click)
+Ans = tk.Label(text="100°C")
 
+
+
+ent_name.pack(side=tk.LEFT)
+lbl_name.pack(side=tk.LEFT)
+btn_click.pack(side=tk.LEFT)
+Ans.pack(side=tk.LEFT)
 
 def handle_keypess(event):
       print(event.char)
